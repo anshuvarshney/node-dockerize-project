@@ -22,7 +22,7 @@ pipeline {
 
         stage("Docker Push"){
             steps{
-                withCredentials([usernamePassword(credentialsID: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: "DOCKEHUB_USERNAME")]){
+                withCredentials([usernamePassword(credentialsID: 'docker_cred', passwordVariable: 'anshu6395', usernameVariable: 'dreamydevops')]){
                     sh "docker login"
                     sh "docker tag my-node-app:1.0 dreamydevops/my-node-app:1.0"
                     sh "docker push dreamydevops/my-node-app:1.0"
