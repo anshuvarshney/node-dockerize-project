@@ -23,8 +23,8 @@ pipeline {
         stage("Docker login"){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'dreamydevops', passwordVariable: 'dockerhub_passwd', usernameVariable: 'dockerhub_username')]){
+                sh "docker logout"    
                 sh "echo ${dockerhub_passwd} | docker login -u ${dockerhub_username} --password-stdin" 
-                sh "docker logout"
                 }
             }
         }
