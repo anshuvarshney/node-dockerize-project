@@ -21,7 +21,8 @@ pipeline {
         }
 
         stage('Push Image to Docker Hub') {         
-            steps{                    
+            steps{     
+                sh "docker tag my-node-app:1.0 dreamydevops/my-node-app:1.0"
                 sh "docker push dreamydevops/my-node-app:1.0"           
                 echo 'Push Image Completed'       
             }            
