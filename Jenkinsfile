@@ -35,6 +35,12 @@ pipeline {
                 sh "docker push dreamydevops/my-node-app:1.0"           
                 echo "Push Image Completed"       
             }            
+        }
+
+         post {
+            always {
+               slackSend channel: '#ruby', color: 'good', message: 'build success full', teamDomain: '#devops', tokenCredentialId: 'slack' 
+            }
         }  
     }
 }
