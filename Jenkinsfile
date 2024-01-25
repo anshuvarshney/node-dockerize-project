@@ -20,17 +20,11 @@ pipeline {
             }
         }
 
-        stage("Docker Push"){
-            steps{
-                withCredentials([usernamePassword(credentialsID: 'docker_cred', passwordVariable: 'anshu6395', usernameVariable: 'dreamydevops')]){
-                    sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
-                    sh "docker tag my-node-app:1.0 dreamydevops/my-node-app:1.0"
-                    sh "docker push dreamydevops/my-node-app:1.0"
-                    sh "docker logout"
-                }
-            }
-
-
-        }
+        stage('Push Image to Docker Hub') {         
+            steps{                            
+                sh 'sudo docker push <dockerhubusername>/<dockerhubreponame>:$BUILD_NUMBER'           
+                echo 'Push Image Completed'       
+            }            
+        }  
     }
 }
