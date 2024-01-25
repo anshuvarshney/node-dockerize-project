@@ -22,7 +22,7 @@ pipeline {
 
         stage('Push Image to Docker Hub') {         
             steps{                            
-                sh 'sudo docker push <dockerhubusername>/<dockerhubreponame>:$BUILD_NUMBER'           
+                sh 'sudo docker push dreamydevops/my-node-app:$BUILD_NUMBER'           
                 echo 'Push Image Completed'       
             }            
         }  
