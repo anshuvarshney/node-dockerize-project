@@ -37,9 +37,8 @@ pipeline {
             }            
         }
 
-         post {
-            always {
-               slackSend channel: '#ruby', message: 'Successful completion of ${env.JOB_NAME}', teamDomain: 'devops-nsp7277', tokenCredentialId: 'slack' 
+        stage('Slack notification'){
+               slackSend channel: '#ruby', message: "Successful completion of ${env.JOB_NAME}", teamDomain: 'devops-nsp7277', tokenCredentialId: 'slack' 
             }
         }  
     }
