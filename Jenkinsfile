@@ -23,7 +23,7 @@ pipeline {
         stage("Docker login"){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'jenkins-github', passwordVariable: 'dockerhub_passwd', usernameVariable: 'dockerhub_username')]){
-                sh "echo ${dockerhub_passwd} | "docker login -u ${dockerhub_username}" --password-stdin" 
+                sh "echo ${dockerhub_passwd} | docker login -u ${dockerhub_username} --password-stdin" 
                 sh "docker logout"
                 }
             
