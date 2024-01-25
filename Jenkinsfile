@@ -26,13 +26,13 @@ pipeline {
                 sh "echo ${dockerhub_passwd} | docker login -u ${dockerhub_username} --password-stdin" 
                 sh "docker logout"
                 }
-            
             }
         }
 
         stage('Push Image to Docker Hub') {         
-            steps{                            
-                sh 'sudo docker push <dockerhubusername>/<dockerhubreponame>:$BUILD_NUMBER'           
+            steps{          
+                sh "docker tag my-node-app:1.0 dreamydevops/my-node-app:1.0
+                sh "docker push dreamydevops/my-noe-app:1.0"           
                 echo 'Push Image Completed'       
             }            
         }  
