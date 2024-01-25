@@ -16,13 +16,13 @@ pipeline {
 
         stage("Build Image"){
             steps{
-                sh "docker build -t my-node-app:1.0 ."
+                sh "docker build -t dreamydevops/my-node-app:1.0 ."
             }
         }
 
         stage('Push Image to Docker Hub') {         
             steps{                            
-                sh 'sudo docker push my-node-app:1.0'           
+                sh 'sudo docker push dreamydevopsmy-node-app:1.0'           
                 echo 'Push Image Completed'       
             }            
         }  
